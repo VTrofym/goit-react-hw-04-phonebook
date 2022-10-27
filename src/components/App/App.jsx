@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import css from './App.module.css';
-const ID_LOCAL_KEY = "active-id";
+const ID_LOCAL_KEY = 'active-id';
 
 export class App extends Component {
   state = {
@@ -21,7 +21,7 @@ export class App extends Component {
   componentDidMount() {
     const savedContacts = JSON.parse(localStorage.getItem(ID_LOCAL_KEY));
     if (savedContacts) {
-      this.setState({contacts: savedContacts})
+      this.setState({ contacts: savedContacts });
     }
   }
 
@@ -75,6 +75,7 @@ export class App extends Component {
 
   getVisibleContacts = () => {
     const normalisedFilter = this.state.filter.toLowerCase();
+    console.log('this.state.contacts', this.state.contacts);
     return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalisedFilter)
     );
@@ -120,4 +121,3 @@ export class App extends Component {
 //       // this.props.onClose();/ сюда ставится функция, например закрытия модалки
 //     }
 //   }
-
