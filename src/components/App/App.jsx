@@ -28,11 +28,6 @@ export const App = () => {
     localStorage.setItem(ID_LOCAL_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
-  const handleChangeInput = event => {
-    const { value } = event.target;
-    setFilter(value);
-  };
-
   const addContact = (name, number) => {
     if (
       contacts.find(
